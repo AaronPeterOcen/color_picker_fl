@@ -21,6 +21,14 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
+        backgroundColor: Colors.white12,
+        elevation: 1,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.save, color: Colors.black87),
+          ),
+        ],
       ),
       body: const Center(child: Text('Welcome to the Color Picker FL App!')),
     );
