@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+/// Represents a color palette with multiple colors and lock states
 class ColorPalette {
   final List<Color> colors;
   final List<bool> lockedColor;
@@ -14,7 +15,7 @@ class ColorPalette {
     DateTime? createdAt,
   }) : createdAt = createdAt ?? DateTime.now();
 
-  // Generate a random color palette
+  /// Generates a random palette with 5 colors
   factory ColorPalette.generateRandom() {
     return ColorPalette(
       colors: List.generate(
@@ -26,6 +27,7 @@ class ColorPalette {
     );
   }
 
+  /// Helper method to generate a single random color
   static Color _generateRandomColor() {
     final Random random = Random();
     return Color.fromRGBO(
@@ -36,6 +38,7 @@ class ColorPalette {
     );
   }
 
+  /// Creates a copy of this palette with optional field overrides
   ColorPalette copyWith({
     List<Color>? colors,
     List<bool>? lockedColors,
@@ -48,10 +51,12 @@ class ColorPalette {
     );
   }
 
+  /// Toggles the locked state of a color at the given index
   void lockedColors(int index) {
     lockedColor[index] = !lockedColor[index];
   }
 
+  /// Generates new random colors for unlocked positions
   void generateNewColors() {
     for (int i = 0; i < colors.length; i++) {
       if (!lockedColor[i]) {
@@ -60,6 +65,7 @@ class ColorPalette {
     }
   }
 
+  /// Returns the hex code representation of a color at the given index
   String getColorHex(int index) {
     final color = colors[index];
     // ignore: deprecated_member_use

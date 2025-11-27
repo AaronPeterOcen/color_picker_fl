@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// A widget that displays a single color card with lock state and hex code
 class ColorCard extends StatelessWidget {
   final Color color;
   final bool isLocked;
@@ -22,6 +23,7 @@ class ColorCard extends StatelessWidget {
         color: color,
         child: Stack(
           children: [
+            // Display hex code at the bottom if showHex is true
             if (showHex)
               Positioned(
                 bottom: 8,
@@ -42,6 +44,7 @@ class ColorCard extends StatelessWidget {
                   ),
                 ),
               ),
+            // Display lock/unlock icon at the top right
             Positioned(
               top: 8,
               right: 8,
@@ -64,6 +67,7 @@ class ColorCard extends StatelessWidget {
     );
   }
 
+  /// Converts the color to its hex code representation
   String _getHexCode() {
     return '#${color.red.toRadixString(16).padLeft(2, '0')}'
             '${color.green.toRadixString(16).padLeft(2, '0')}'
