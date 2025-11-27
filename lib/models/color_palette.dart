@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 class ColorPalette {
   final List<Color> colors;
-  final List<bool> lockedColors;
+  final List<bool> lockedColor;
   final String name;
   final DateTime createdAt;
 
   ColorPalette({
     required this.colors,
-    required this.lockedColors,
+    required this.lockedColor,
     this.name = "Untitled Palette",
     DateTime? createdAt,
   }) : createdAt = createdAt ?? DateTime.now();
@@ -22,7 +22,7 @@ class ColorPalette {
         (_) =>
             Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0),
       ),
-      lockedColors: List.generate(5, (_) => false),
+      lockedColor: List.generate(5, (_) => false),
     );
   }
 
@@ -43,19 +43,18 @@ class ColorPalette {
   }) {
     return ColorPalette(
       colors: colors ?? List.from(this.colors),
-      lockedColors: lockedColors ?? List.from(this.lockedColors),
+      lockedColor: lockedColors ?? List.from(this.lockedColor),
       name: name ?? this.name,
     );
   }
 
-  void lockedColor(int index) {
-    lockedColors[index] = !lockedColors[index];
+  void lockedColors(int index) {
+    lockedColor[index] = !lockedColor[index];
   }
 
   void generateNewColors() {
-    final random = Random();
     for (int i = 0; i < colors.length; i++) {
-      if (!lockedColors[i]) {
+      if (!lockedColor[i]) {
         colors[i] = _generateRandomColor();
       }
     }
