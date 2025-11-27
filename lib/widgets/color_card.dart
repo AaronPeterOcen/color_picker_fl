@@ -65,8 +65,9 @@ class ColorCard extends StatelessWidget {
   }
 
   String _getHexCode() {
-    // ignore: deprecated_member_use
-    return '#${color.red.toRadixString(16).padLeft(2, '0')}${color.green.toRadixString(16).padLeft(2, '0')}${color.blue.toRadixString(16).padLeft(2, '0')}'
+    return '#${color.red.toRadixString(16).padLeft(2, '0')}'
+            '${color.green.toRadixString(16).padLeft(2, '0')}'
+            '${color.blue.toRadixString(16).padLeft(2, '0')}'
         .toUpperCase();
   }
 }

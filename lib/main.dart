@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Color Picker FL',
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.lightBlueAccent),
+        scaffoldBackgroundColor: Colors.white,
         fontFamily: "ubuntu",
       ),
       home: HomePage(),
